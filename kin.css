@@ -1,0 +1,176 @@
+/* -------------------------------------------------------
+   전체 공통 스타일
+--------------------------------------------------------*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* -------------------------------------------------------
+   공통/재사용 스타일 (폼, 버튼, 링크 등)
+--------------------------------------------------------*/
+
+/* form이 한 줄 레이아웃을 유지하게 */
+form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+input[type="text"] {
+    padding: 6px;
+    font-size: 14px;
+    width: 240px;
+}
+
+button {
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+/* 검색 줄 + 오른쪽 링크 같은 줄 정렬 */
+.search-bar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* 오른쪽 상단 '저장 결과 모아보기' 링크 */
+.saved-list-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #3366cc;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.saved-list-link:hover {
+    color: #224a99;
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------
+   저장결과 페이지(kin_saved_list.jsp) 전용 스타일
+   (표 + 페이지네이션)
+--------------------------------------------------------*/
+
+/* 저장된 목록 표를 담는 컨테이너 스타일 */
+.result-box {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.saved-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.saved-table th,
+.saved-table td {
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    text-align: left;
+}
+
+.saved-table th {
+    background-color: #f2f2f2;
+}
+
+/* URL 링크 */
+.saved-table td a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.saved-table td a:hover {
+    text-decoration: underline;
+}
+
+/* 페이지 번호 */
+.pagination {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 3px 6px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination .current {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* -------------------------------------------------------
+   검색 페이지(kin_search.jsp) 전용 스타일
+--------------------------------------------------------*/
+
+/* 검색결과 박스 (저장 페이지 스타일을 덮어쓰기 위해 재정의) */
+.result-box {
+    width: 90%;
+    margin-top: 20px;
+    max-height: 420px;
+    overflow-y: scroll;
+    background: #fafafa;
+    counter-reset: item-counter;
+}
+
+.item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 5px;
+    padding-left: 40px;
+    position: relative;
+}
+
+.item:before {
+    content: counter(item-counter) ".";
+    counter-increment: item-counter;
+    
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    
+    font-weight: bold;
+    color: #4a90e2;
+    width: 20px;
+    text-align: right;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.item a:hover {
+    text-decoration: underline;
+}
